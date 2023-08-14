@@ -48,7 +48,7 @@ function App() {
   const [jsonData, setJsonData] = React.useState(null);
 
 
-  const [value, setValue] = React.useState(1);
+  const [value, setValue] = React.useState(0);
   const [data, setData] = React.useState({
     Longitudinal:{
       structureType : "3DImensional",

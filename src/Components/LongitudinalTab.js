@@ -35,11 +35,21 @@ const LongitudinalTab = (props) => {
   }, [props]);
 
   const structureTypeChange = (event) => {
-    setData({...data, structureType: event.target.value});
+    setData({
+      ...data, 
+      Longitudinal:{
+        ...data.Longitudinal,
+        structureType: event.target.value
+      }});
     setStructureType(event.target.value);
   };
   const typeOfBridgeChange = (event) => {
-    setData({...data, typeOfBridge: event.target.value});
+    setData({
+      ...data, 
+      Longitudinal:{
+        ...data.Longitudinal,
+        typeOfBridge: event.target.value
+      }});
     setTypeOfBridge(event.target.value);
   };
   const handleChange = (event) => {
