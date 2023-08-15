@@ -1,0 +1,62 @@
+Time complexity is a way to analyze the efficiency of an algorithm in terms of how its running time grows with respect to the size of the input. Here are some common types of time complexity:
+
+Constant Time (O(1)): The algorithm's running time does not change as the input size increases. It performs a constant number of operations regardless of the input.
+
+Logarithmic Time (O(log n)): The algorithm's running time grows logarithmically with the input size. Common in binary search and other divide-and-conquer algorithms.
+
+Linear Time (O(n)): The running time grows linearly with the input size. The number of operations is directly proportional to the size of the input.
+
+Linearithmic Time (O(n log n)): Often seen in efficient sorting algorithms like merge sort and quicksort. It combines linear and logarithmic growth.
+
+Quadratic Time (O(n^2)): The running time is proportional to the square of the input size. Common in algorithms with nested loops.
+
+Cubic Time (O(n^3)), Polynomial Time (O(n^k)): Similar to quadratic time, but with higher powers of n. Common in algorithms with deeply nested loops.
+
+Exponential Time (O(2^n)): The running time doubles with each additional element in the input. Common in brute-force algorithms.
+
+Factorial Time (O(n!)): The running time grows factorially with the input size. Extremely inefficient and usually only feasible for small inputs.
+
+These classifications help provide a rough understanding of how an algorithm's performance scales with input size. It's important to note that constants and lower-order terms are often ignored when analyzing time complexity, as they become less significant for large input sizes.
+
+------------------------------------------------------------------------
+
+Q1. Mirror Points Along a Given Line:
+
+function mirrorPoints(points, linePoint1, linePoint2) {
+  const mirror = [linePoint2[0] - linePoint1[0], linePoint2[1] - linePoint1[1]];
+  const length = Math.sqrt(mirror[0] ** 2 + mirror[1] ** 2);
+  const normalizedMirror = [mirror[0] / length, mirror[1] / length];
+
+  const mirroredPoints = [];
+  for (const point of points) {
+    const toPoint = [point[0] - linePoint1[0], point[1] - linePoint1[1]];
+    const dotProduct = toPoint[0] * normalizedMirror[0] + toPoint[1] * normalizedMirror[1];
+    const mirroredPoint = [point[0] + 2 * dotProduct * normalizedMirror[0], point[1] + 2 * dotProduct * normalizedMirror[1]];
+    mirroredPoints.push(mirroredPoint);
+  }
+
+  return mirroredPoints;
+}
+
+Worst Time Complexity: O(n), where n is the number of points.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Q2 : Check Whether Two Points are on the Same Side or Different Side of a Line:
+
+function checkSide(point1, point2, linePoint1, linePoint2) {
+  const lineVector = [linePoint2[0] - linePoint1[0], linePoint2[1] - linePoint1[1]];
+  const vector1 = [point1[0] - linePoint1[0], point1[1] - linePoint1[1]];
+  const vector2 = [point2[0] - linePoint1[0], point2[1] - linePoint1[1]];
+
+  const crossProduct1 = lineVector[0] * vector1[1] - lineVector[1] * vector1[0];
+  const crossProduct2 = lineVector[0] * vector2[1] - lineVector[1] * vector2[0];
+
+  if (crossProduct1 * crossProduct2 >= 0) {
+    return "Same side";
+  } else {
+    return "Different side";
+  }
+}
+
+Worst Time Complexity: O(1). The algorithm performs a fixed number of operations regardless of the inputs.
