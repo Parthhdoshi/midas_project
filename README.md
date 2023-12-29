@@ -1,3 +1,4 @@
+This project is contains set of fields thats accept user input and convert into json and vice versa.
 # Create React App
 
 This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
